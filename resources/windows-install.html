@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>JSD12 - Windows installation instructions</title>
+        <title>JSD13 - Windows installation instructions</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/styles.css">
         <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
@@ -62,7 +62,7 @@ git config --global user.email "YOUR EMAIL ADDRESS"</code></pre>
                 <pre><code class="bash language-bash">git config --global core.editor "atom -w"</code></pre></li>
 
                 <li><p><strong>Install Node</strong>
-                Refer to the package installer on Node’s <a href="https://nodejs.org/en/">website</a>. Select the Current version (labeled "Latest Features"). Then just follow the set-up instructions.</p>
+                <p>Refer to the package installer on Node’s <a href="https://nodejs.org/en/">website</a>. Select the "Recommended For Most Users" version (labeled "LTS"). Then just follow the set-up instructions.</p></li>
 
                 <li><p><strong>Configure Node</strong></p></li>
                 <p>Copy and paste the following command into PowerShell, then press Enter:</p>
@@ -91,40 +91,43 @@ git config --global user.email "YOUR EMAIL ADDRESS"</code></pre>
             </div>
 
             <div class="light-blue-bg container push-top push-bottom">
-                                
+                                    
                 <h2 id="github">2. Set Up GitHub Enterprise</h2>
                 
                 <p>We will be using the GitHub Enterprise service to share some of our code. We will learn
                 about the underlying technology of GitHub known as <code>git</code> in the next lesson.</p>
-                
-                <ul>
-                <li>Log into your account at https://git.generalassemb.ly</li>
-                
-                <li>Follow <a href="https://help.github.com/enterprise/2.14/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">these
-                instructions</a>
-                to create a new <em>SSH Key</em> (a special, very secure, key which allows your
-                laptop access to your github account without having to remember your github
-                password)</li>
-                
-                <li>Add your new SSH Key to GitHub Enterprise following <a href="https://help.github.com/enterprise/2.14/user/articles/adding-a-new-ssh-key-to-your-github-account/">these
-                instructions</a></li>
-                
-                <li>Verify your key works by running the following:</li>
-                </ul>
-                
-                <pre><code class="bash language-bash">ssh -T git@git.generalassemb.ly</code></pre>
-                
-                <p>You should see output similar to:</p>
-                
-                <p><code>
-                Hi &lt;you&gt;! You've successfully authenticated, but GitHub does not provide shell access.
-                Connection to git.generalassemb.ly closed.
-                </code></p>
-            </div>
 
+                <p class="bg-warning"><strong>Note</strong>: If you already have an SSH key set up in git (for instance, for a personal or work account on github.com), use the steps in <a href="multiple-git-config-win.html">Configuring Git to use Multiple Accounts (Windows)</a> instead of those below.</p>
+                
+                <ol>
+                  <li>Log into your account at https://git.generalassemb.ly</li>
+                  
+                  <li>Follow <a href="https://help.github.com/enterprise/2.15/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">these
+                  instructions</a>
+                  to create a new <em>SSH Key</em> (a special, very secure, key which allows your
+                  laptop access to your github account without having to remember your github
+                  password)</li>
+                  
+                  <li>Add your new SSH Key to GitHub Enterprise following <a href="https://help.github.com/enterprise/2.15/user/articles/adding-a-new-ssh-key-to-your-github-account/">these
+                  instructions</a></li>
+                  
+                  <li>Verify your key works by running the following:
+                
+                  <pre><code class="bash language-bash">ssh -T git@git.generalassemb.ly</code></pre>
+                  
+                  <p>You should see output similar to:</p>
+                  
+                  <p><code>
+                  Hi &lt;you&gt;! You've successfully authenticated, but GitHub does not provide shell access.
+                  Connection to git.generalassemb.ly closed.
+                  </code></p>
+                </li>
+              </ol>
+            </div> 
+            
             <div class="light-blue-bg container push-top push-bottom">
-                                
-                <h2 id="helpfuldebuggingtips">Helpful Debugging Tips</h2>
+                
+                <h2 id="tips">Helpful Debugging Tips</h2>
                 
                 <p><strong>Error installing due to permissions</strong></p>
                 
@@ -136,51 +139,61 @@ git config --global user.email "YOUR EMAIL ADDRESS"</code></pre>
                 
                 <p><strong>Common Issues and Fixes:</strong></p>
                 
-                <p>We recommend the following remedies to issues that commonly arise during the installation of command line utilities:</p>
-                
                 <ul>
-                <li><p>Mac users may run into the problem of an outdated version of Git installed with Xcode being given precedence in the terminal. If you experience this issue, you’ll need to adjust your shell path by following the instructions under "Trumping Xcode's Older Git" <a href="http://coolestguidesontheplanet.com/install-update-latest-version-git-mac-osx-10-9-mavericks/">in this article</a>.</p></li>
-                
-                <li><p>Mac users running OS 10.11 or later may need to <a href="http://osxdaily.com/2015/10/05/disable-rootless-system-integrity-protection-mac-os-x/">disable the System Integrity Protection</a> on their machine before installing certain command line utilities.</p></li>
-                
-                <li><p>Students experiencing an EACCES error should change directory permissions to install Node and npm without the need to use sudo:
-                <code>sudo chown -R $(whoami) /usr/local/lib/node_modules</code></p></li>
-                
-                <li><p>Students with Homebrew installed on their machines should run <code>brew update</code> in order to get the latest version of Homebrew.</p></li>
-                
-                <li><p>Students who need to update their installations of npm can run <code>npm install -g npm</code>.</p></li>
-                
-                <li><p>Students with an existing, outdated installation of Node can update their install by following the directions above (i.e., using the package installer).</p></li>
+                  <!-- <li><p>Mac users may run into the problem of an outdated version of Git installed with Xcode being given precedence in the terminal. If you experience this issue, you’ll need to adjust your shell path by following the instructions under "Trumping Xcode's Older Git" <a href="https://coolestguidesontheplanet.com/install-update-latest-version-git-mac-osx-10-9-mavericks/">in this article</a>.</p></li>
+                  
+                  <li><p>Mac users running OS 10.11 or later may need to <a href="https://osxdaily.com/2015/10/05/disable-rootless-system-integrity-protection-mac-os-x/">disable the System Integrity Protection</a> on their machine before installing certain command line utilities.</p></li> -->
+                  
+                  <li><p><code>EACCES</code> error: change directory permissions to install Node and npm without the need to use sudo:
+                  <pre><code class="bash language-bash">sudo chown -R $(whoami) /usr/local/lib/node_modules</code></pre></li>
+                  
+                  <!-- <li><p>Students with Homebrew installed on their machines should run <code>brew update</code> in order to get the latest version of Homebrew.</p></li> -->
+<!--                   
+                  <li><p>Students who need to update their installations of npm can run <code>npm install -g npm</code>.</p></li>
+                  
+                  <li><p>Students with an existing, outdated installation of Node can update their install by following the directions above (i.e., using the package installer).</p></li> -->
 
+                  <li><p><code>Permission denied (publickey)</code>: Use the following command to manually add the key to the keychain:</p>
+                    <pre><code class="bash language-bash">ssh-add ~/.ssh/id_rsa_ga</code></pre>
+                    <p>Then retry your previous command.</p>
+                    
+                    <!-- follow the troubleshooting steps at <a href="https://help.github.com/enterprise/2.14/user/articles/error-permission-denied-publickey/">https://help.github.com/enterprise/2.14/user/articles/error-permission-denied-publickey/</a>. -->
+                  
+                  </p></li>
 
-                <li><p>Students experiencing a Permission denied (publickey) error with GitHub Enterprise should following the troubleshooting steps at https://help.github.com/enterprise/2.14/user/articles/error-permission-denied-publickey/.</p></li>
-
-                <li><p>Students with an existing GitHub account that uses SSH should edit the git config file as follows:</p>
-                  <ul>
-                    <li>In your editor, open your home directory, navigate to the <code>.ssh</code> folder, then open the file named <code>config</code> (if this file doesn't exist, go to the terminal, run <code>touch ~/.ssh/config</code>, then open the file in your editor.)</li>
-                    <li>Add a second entry to your file using the following as a template (note that everything after a # is a comment):
+                  <li><p>Existing GitHub account that uses SSH (and existing id_rsa file): save your new key as <code>~/.ssh/id_rsa_ga</code>, and then edit the git <code>config</code> file as follows:</p>
+                    <ul>
+                      <li>In your editor, open your home directory, navigate to the <code>.ssh</code> folder, then open the file named <code>config</code> (if this file doesn't exist, go to the terminal, run <code>touch ~/.ssh/config</code>, then open the file in your editor.)</li>
+                      <li>Edit your file using the following as a template:
 <pre>
-  # my GitHub account
-  Host personal
-    HostName github.com
-    User git
-    AddKeysToAgent yes
-    UseKeychain yes
-    IdentityFile ~/.ssh/id_rsa
-
-  # GA GitHub Enterprise
-  Host GA   
-    HostName git.generalassemb.ly
-    User git
-    AddKeysToAgent yes
-    UseKeychain yes
-    IdentityFile ~/.ssh/id_rsa_ga # this should match the filename you used when saving your new key
+    # my GitHub account 
+    Host personal
+      HostName github.com
+      User git
+      AddKeysToAgent yes
+      UseKeychain yes
+      IdentityFile ~/.ssh/id_rsa
+      IdentitiesOnly yes
+    
+    # GA github Enterprise
+    Host GA   
+      HostName git.generalassemb.ly
+      User git
+      AddKeysToAgent yes
+      UseKeychain yes
+      IdentityFile ~/.ssh/id_rsa_ga
+      IdentitiesOnly yes
+    
+    # wildcard
+    Host *
+      AddKeysToAgent yes
+      UseKeychain yes
 </pre>
-                    </li>
-                    <li>Save your changes</li>
-                  </ul>
-                </li>
-              </ul>
+                      </li>
+                      <li>Save your changes</li>
+                    </ul>
+                  </li>
+                </ul>
             </div>
         </div>
     </body>
